@@ -1,0 +1,16 @@
+
+#include "csvparser.hpp"
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    CSVParser       parser;
+    CSVParser::Cells data;
+
+    parser.parse("sample.csv", data);
+    parser.output(cout, data);
+
+    return 0;
+}
+
