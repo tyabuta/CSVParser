@@ -1,4 +1,4 @@
-/************************************************
+﻿/************************************************
  * CSVParser
  *                            tyabuta 2012.06.17
  ************************************************/
@@ -10,10 +10,10 @@
 #include <string>
 
 /*
- * CSVファイルをセル状に分析するクラス
+ * CSVファイルを解析するクラス
  * ダブルクォーテーションによる囲みや、途中の改行にも対応しています。
  * カンマ区切り対応の typedef された CSVParser がありますが、
- * basic_csvparser<'\t'> でインスタンスを作成すればTAB区切りに対応できます。
+ * basic_csvparser<'\t'> でインスタンスすればTAB区切りに対応できます。
  */
 template <int separate_ = ','>
 class basic_csvparser{
@@ -47,8 +47,7 @@ public:
 
         // CSVファイルのパース開始
         FILE* f;
-        fopen_s(&f, csv_path.c_str(), "r");
-        if (f){
+        if (0 == fopen_s(&f, csv_path.c_str(), "r")) {
             while (1){
                 char c = fgetc(f);
                 put(c);
